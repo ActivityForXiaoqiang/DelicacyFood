@@ -1,19 +1,15 @@
 package com.pepsi.Activity;
 
-import com.pepsi.Tools.TOOL;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 
 public class WelcomeActivity extends BasedActivity {
 	private int[] welcome_items = { R.drawable.welcome_item1, R.drawable.welcome_item2, R.drawable.welcome_item3,
@@ -44,7 +40,7 @@ public class WelcomeActivity extends BasedActivity {
 
 			@Override
 			public void onClick(View v) {
-				startActivity(new Intent(WelcomeActivity.this, MainActivity.class));
+				startActivity(new Intent(WelcomeActivity.this, LoginActivity.class));
 				finish();
 			}
 		});

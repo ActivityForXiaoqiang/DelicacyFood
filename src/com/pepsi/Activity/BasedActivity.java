@@ -13,4 +13,8 @@ public class BasedActivity extends FragmentActivity {
 		TOOL.NoTitleBar(this);
 
 	}
+	
+	
+	
+	
 }

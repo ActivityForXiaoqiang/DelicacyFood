@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 
 public class MainActivity extends Activity {
+//fuck the xiaoqiang
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

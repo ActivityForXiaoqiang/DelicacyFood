@@ -32,7 +32,7 @@ public class DetailActivity extends BasedActivity {
 
 	private RelativeLayout to_baidu_dingwei;
 
-	private Button btn_yuyue;
+	private RelativeLayout btn_yuyue;
 	private ImageView tuijian;
 
 	@Override
@@ -52,7 +52,7 @@ public class DetailActivity extends BasedActivity {
 		icon = (ImageView) findViewById(R.id.shop_icon);
 		icon.setBackgroundResource(shop.getIcon());
 		tuijian=(ImageView) findViewById(R.id.tuijain);
-		btn_yuyue = (Button) findViewById(R.id.btn_yuyue);
+		btn_yuyue = (RelativeLayout) findViewById(R.id.btn_yuyue);
 
 		shop_name = (TextView) findViewById(R.id.shop_name);
 		to_baidu_dingwei = (RelativeLayout) findViewById(R.id.to_baidu_dingwei);

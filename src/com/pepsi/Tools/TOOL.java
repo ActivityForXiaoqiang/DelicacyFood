@@ -19,7 +19,7 @@ public class TOOL {
 	public static final String KEY = "MEISHI";
 	public static final String UserKey = "userInfo";
 	public static final String ORDER = "order";
-	
+
 	public static List<UserInfo> userList = new ArrayList<UserInfo>();
 
 	/**
@@ -92,11 +92,12 @@ public class TOOL {
 		user.setUsername("12345678901");
 		user.setPassword("123456");
 		userList.add(user);
-		UserInfo SellerUser = new UserInfo();
+		
+		user = new UserInfo();
 		user.setId(Attribute.SELLER);
 		user.setUsername("12345678902");
 		user.setPassword("123456");
-		userList.add(SellerUser);
+		userList.add(user);
 		save(con, UserKey, JSON.toJSONString(userList));
 
 	}
@@ -131,6 +132,7 @@ public class TOOL {
 
 	public static boolean CheckUser(Context con, EditText ed, EditText pwd) {
 		List<UserInfo> list = JSON.parseArray(read(con, UserKey), UserInfo.class);
+		Log.i("xiaoqiang", list.size() + "----");
 		for (int i = 0; i < list.size(); i++) {
 			UserInfo u = list.get(i);
 			if (u.getId() == Attribute.BUYERS) {
@@ -142,6 +144,7 @@ public class TOOL {
 					Toast.makeText(con, "密码", 0).show();
 					return false;
 				}
+//				Log.i("xiaoqiang", TextUtils.isEmpty(u.getUsername())+"====");
 				CurrentUseer user = CurrentUseer.getCurrentUseer(u);
 			}
 		}
@@ -149,13 +152,15 @@ public class TOOL {
 		return true;
 
 	}
-/**
- * 卖家登录验证
- * @param con
- * @param ed
- * @param pwd
- * @return
- */
+
+	/**
+	 * 卖家登录验证
+	 * 
+	 * @param con
+	 * @param ed
+	 * @param pwd
+	 * @return
+	 */
 	public static boolean CheckSellerUser(Context con, EditText ed, EditText pwd) {
 		List<UserInfo> list = JSON.parseArray(read(con, UserKey), UserInfo.class);
 		for (int i = 0; i < list.size(); i++) {

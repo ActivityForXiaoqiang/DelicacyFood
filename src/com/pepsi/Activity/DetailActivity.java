@@ -33,7 +33,6 @@ public class DetailActivity extends BasedActivity {
 	private RelativeLayout to_baidu_dingwei;
 
 	private Button btn_yuyue;
-	private Button btn_dingcan;
 	private ImageView tuijian;
 
 	@Override
@@ -53,7 +52,6 @@ public class DetailActivity extends BasedActivity {
 		icon.setBackgroundResource(shop.getIcon());
 		tuijian=(ImageView) findViewById(R.id.tuijain);
 		btn_yuyue = (Button) findViewById(R.id.btn_yuyue);
-		btn_dingcan = (Button) findViewById(R.id.btn_dingcan);
 
 		shop_name = (TextView) findViewById(R.id.shop_name);
 		to_baidu_dingwei = (RelativeLayout) findViewById(R.id.to_baidu_dingwei);
@@ -64,8 +62,8 @@ public class DetailActivity extends BasedActivity {
 		shop_location.setText(shop.getLocation());
 		
 		Random ran=new Random();
-		int j=ran.nextInt(8);
-		tuijian.setImageBitmap(getImageFromAssetsFile(j+"jpg"));
+		int j=ran.nextInt(7)+1;
+		tuijian.setImageBitmap(getImageFromAssetsFile(j+".jpg"));
 		to_baidu_dingwei.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -77,13 +75,6 @@ public class DetailActivity extends BasedActivity {
 			}
 		});
 
-		btn_dingcan.setOnClickListener(new OnClickListener() {
-
-			@Override
-			public void onClick(View v) {
-
-			}
-		});
 
 		final ArrayList<Order> orderList = new ArrayList<Order>();
 
@@ -96,10 +87,9 @@ public class DetailActivity extends BasedActivity {
 	    order.setUser(userName);
 		orderList.add(order);
 		
-
-		if (null != TOOL.read(this, TOOL.ORDER)) {
+		if (null != TOOL.read(DetailActivity.this, TOOL.ORDER)) {
 			ArrayList<Order> saveList = (ArrayList<Order>) JSON.parseArray(
-					TOOL.read(this, TOOL.ORDER), Order.class);
+					TOOL.read(DetailActivity.this, TOOL.ORDER), Order.class);
 			for (int i = 0; i < saveList.size(); i++) { 
 				Order or = saveList.get(i);
 				orderList.add(or);
@@ -111,9 +101,12 @@ public class DetailActivity extends BasedActivity {
 
 			@Override
 			public void onClick(View v) {
+				
 
 				TOOL.save(DetailActivity.this, TOOL.ORDER,
 						JSON.toJSONString(orderList));
+				
+				
 				Toast.makeText(DetailActivity.this, "预约成功", 0).show();
 			}
 		});

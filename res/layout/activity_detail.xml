@@ -80,4 +80,16 @@
 
     </RelativeLayout>
 
+    <Button
+        android:id="@+id/btn_yuyue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="预约" />
+
+    <Button
+        android:id="@+id/btn_dingcan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="营养膳食" />
+
 </LinearLayout>

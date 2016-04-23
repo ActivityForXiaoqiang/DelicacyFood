@@ -1,6 +1,10 @@
 package com.pepsi.Activity;
 
+import java.util.ArrayList;
+import java.util.Date;
+
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -11,7 +15,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.alibaba.fastjson.JSON;
+import com.pepsi.Tools.Order;
 import com.pepsi.Tools.Shop;
+import com.pepsi.Tools.TOOL;
 
 public class DetailActivity extends BasedActivity {
 	private Shop shop;
@@ -67,12 +73,34 @@ public class DetailActivity extends BasedActivity {
 
 			}
 		});
+
+		final ArrayList<Order> orderList = new ArrayList<Order>();
+
+		Order order = new Order();
+		order.setPicId(shop.getIcon());
+		order.setTime("" + new Date().toString());
+		order.setStory(shop.getName());
+		// order.setUser(TOOL.read(this, TOOL.UserKey));
+		orderList.add(order);
+
+		if (null != TOOL.read(this, TOOL.ORDER)) {
+			ArrayList<Order> saveList = (ArrayList<Order>) JSON.parseArray(
+					TOOL.read(this, TOOL.ORDER), Order.class);
+			for (int i = 0; i < saveList.size(); i++) {
+				Order or = saveList.get(i);
+				orderList.add(or);
+			}
+
+		}
+
 		btn_yuyue.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
-				
 
+				TOOL.save(DetailActivity.this, TOOL.ORDER,
+						JSON.toJSONString(orderList));
+				Toast.makeText(DetailActivity.this, "预约成功", 0).show();
 			}
 		});
 

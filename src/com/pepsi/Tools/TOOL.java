@@ -91,6 +91,11 @@ public class TOOL {
 		user.setUsername("12345678901");
 		user.setPassword("123456");
 		userList.add(user);
+		UserInfo SellerUser = new UserInfo();
+		user.setId(Attribute.SELLER);
+		user.setUsername("12345678902");
+		user.setPassword("123456");
+		userList.add(SellerUser);
 		save(con, UserKey, JSON.toJSONString(userList));
 
 	}
@@ -102,7 +107,7 @@ public class TOOL {
 			return false;
 		}
 
-		if (str.length() < 11) {
+		if (str.length() != 11) {
 			Toast.makeText(con, "请输入正确手机号", 0).show();
 			return false;
 		}
@@ -114,11 +119,47 @@ public class TOOL {
 
 	}
 
+	/**
+	 * 买家登录验证
+	 * 
+	 * @param con
+	 * @param ed
+	 * @param pwd
+	 * @return
+	 */
+
 	public static boolean CheckUser(Context con, EditText ed, EditText pwd) {
 		List<UserInfo> list = JSON.parseArray(read(con, UserKey), UserInfo.class);
 		for (int i = 0; i < list.size(); i++) {
 			UserInfo u = list.get(i);
 			if (u.getId() == Attribute.BUYERS) {
+				if (!u.getUsername().equals(ed.getText().toString())) {
+					Toast.makeText(con, "用户不存在", 0).show();
+					return false;
+				}
+				if (!u.getPassword().equals(pwd.getText().toString())) {
+					Toast.makeText(con, "密码", 0).show();
+					return false;
+				}
+				CurrentUseer user = CurrentUseer.getCurrentUseer(u);
+			}
+		}
+
+		return true;
+
+	}
+/**
+ * 卖家登录验证
+ * @param con
+ * @param ed
+ * @param pwd
+ * @return
+ */
+	public static boolean CheckSellerUser(Context con, EditText ed, EditText pwd) {
+		List<UserInfo> list = JSON.parseArray(read(con, UserKey), UserInfo.class);
+		for (int i = 0; i < list.size(); i++) {
+			UserInfo u = list.get(i);
+			if (u.getId() == Attribute.SELLER) {
 				if (!u.getUsername().equals(ed.getText().toString())) {
 					Toast.makeText(con, "用户不存在", 0).show();
 					return false;

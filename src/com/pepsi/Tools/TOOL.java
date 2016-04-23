@@ -3,9 +3,6 @@ package com.pepsi.Tools;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONArray;
-
 import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -15,6 +12,8 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.alibaba.fastjson.JSON;
 
 public class TOOL {
 	public static final String KEY = "MEISHI";

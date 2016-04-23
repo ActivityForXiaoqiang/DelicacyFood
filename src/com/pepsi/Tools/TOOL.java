@@ -19,6 +19,8 @@ import android.widget.Toast;
 public class TOOL {
 	public static final String KEY = "MEISHI";
 	public static final String UserKey = "userInfo";
+	public static final String ORDER = "order";
+	
 	public static List<UserInfo> userList = new ArrayList<UserInfo>();
 
 	/**

@@ -12,4 +12,5 @@ public class DetailActivity extends BasedActivity {
 		setMine();
 		setTitle("详情");
 	}
+	
 }

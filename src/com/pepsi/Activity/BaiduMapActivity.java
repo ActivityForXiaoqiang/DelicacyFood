@@ -32,14 +32,17 @@ import com.baidu.mapapi.utils.DistanceUtil;
  * @author baidu
  * 
  */
-public class BaiduMapActivity extends Activity {
+public class BaiduMapActivity extends BasedActivity {
 	private MapView mMapView = null;
 	private BaiduMap mBaiduMap;
 	//private Button reset;
 	private LocationService locService;
 	private LinkedList<LocationEntity> locationList = new LinkedList<LocationEntity>(); // 存放历史定位结果的链表，最大存放当前结果的前5次定位结果
 	
-
+	String latitude;//纬度
+    String longitude;//经度
+    String locationString;//地名
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -57,6 +60,8 @@ public class BaiduMapActivity extends Activity {
 		locService.setLocationOption(mOption);
 		locService.registerListener(listener);
 		locService.start();
+		
+		Toast.makeText(BaiduMapActivity.this, "", 0).show();
 	}
 
 	/***
@@ -143,15 +148,15 @@ public class BaiduMapActivity extends Activity {
 				BDLocation location = msg.getData().getParcelable("loc");
 				int iscal = msg.getData().getInt("iscalculate");
 				if (location != null) {
-					LatLng point = new LatLng(location.getLatitude(), location.getLongitude());
-					Toast.makeText(BaiduMapActivity.this, location.getAddrStr(), 0).show();
+					LatLng point = new LatLng(30.2113870000,120.2168320000);
+					
 					// 构建Marker图标
 					BitmapDescriptor bitmap = null;
 					if (iscal == 0) {
-						bitmap = BitmapDescriptorFactory.fromResource(R.drawable.huaji); // 非推算结果
+						//bitmap = BitmapDescriptorFactory.fromResource(R.drawable.huaji); // 非推算结果
 					} else {
-						bitmap = BitmapDescriptorFactory.fromResource(R.drawable.icon_openmap_focuse_mark); // 推算结果
 					}
+					bitmap = BitmapDescriptorFactory.fromResource(R.drawable.icon_openmap_focuse_mark); // 推算结果
 
 					// 构建MarkerOption，用于在地图上添加Marker
 					OverlayOptions option = new MarkerOptions().position(point).icon(bitmap);

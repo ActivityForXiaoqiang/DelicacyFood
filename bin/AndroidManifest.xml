@@ -58,7 +58,7 @@
             android:value="6Z0Kr4GNdGvOzxyqReGiYfn3rCkgnC2x" />
         
         <activity
-            android:name="com.pepsi.Activity.BaiduMapActivity"
+            android:name="com.pepsi.Activity.WelcomeActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -66,7 +66,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.pepsi.Activity.MainActivity" >
+        <activity android:name="com.pepsi.Activity.BaiduMapActivity" >
+        </activity>
+         <activity android:name="com.pepsi.Activity.MainActivity" >
         </activity>
         <activity android:name="com.pepsi.Activity.LoginActivity" >
         </activity>

@@ -41,4 +41,9 @@ public class Attribute {
 		}
 		return store;
 	}
+	
+	
+	public static final int BUYERS=1;
+	public static final int Seller=2;
+	
 }

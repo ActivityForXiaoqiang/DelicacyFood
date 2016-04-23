@@ -3,6 +3,7 @@ package com.pepsi.Adapter;
 import java.util.ArrayList;
 
 import com.pepsi.Activity.R;
+import com.pepsi.Tools.Shop;
 
 import android.content.Context;
 import android.view.View;
@@ -13,9 +14,9 @@ import android.widget.ImageView;
 public class MyAdapter extends BaseAdapter {
 
 	Context context;
-	ArrayList<Integer> data;
+	ArrayList<Shop> data;
 
-	public MyAdapter(Context context, ArrayList<Integer> data) {
+	public MyAdapter(Context context, ArrayList<Shop> data) {
 		this.context = context;
 		this.data = data;
 	}
@@ -50,7 +51,8 @@ public class MyAdapter extends BaseAdapter {
 			h = (viewHolder) convertView.getTag();
 		}
 		if (data != null && data.size() > 0) {
-			h.img.setBackgroundResource(data.get(position));
+			Shop p = data.get(position);
+			h.img.setBackgroundResource(p.getIcon());
 		}
 		return convertView;
 	}

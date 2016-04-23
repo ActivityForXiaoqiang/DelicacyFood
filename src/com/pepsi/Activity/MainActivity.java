@@ -16,6 +16,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ImageView;
@@ -28,6 +29,7 @@ public class MainActivity extends BasedActivity {
 	private NoScrollListView tuijian, hot;
 	int index = 0;
 	ArrayList<Integer> data;
+	private LinearLayout mine;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +39,14 @@ public class MainActivity extends BasedActivity {
 	}
 
 	void initView() {
+		mine = (LinearLayout) findViewById(R.id.mine);
+		mine.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				startActivity(new Intent(MainActivity.this, MySelfActvity.class));
+			}
+		});
 		viewpager = (ViewPager) findViewById(R.id.main_viewpager);
 		viewpager.setAdapter(new ViewPagerAdapter());
 		viewpager.setOnPageChangeListener(viewpagerListener);

@@ -25,6 +25,8 @@ public class Attribute {
 	public static String[] shop_contetn = { "蛋糕店", "甜点店", "coffer店 甜点店", "coffer店", "水果店", "高级餐厅", "高级餐厅" };
 
 	public static List<Shop> store;
+	public static String[] SellUsernmae = { "12345678902", "12345678903", "12345678904", "12345678905", "12345678906",
+			"12345678907", "12345678908" };
 
 	public static List<Shop> InitStore() {
 		store = new ArrayList<Shop>();
@@ -36,14 +38,14 @@ public class Attribute {
 			p.setIcon(icons[i]);
 			p.setName(shop_name[i]);
 			p.setContent(shop_contetn[i]);
+			p.setSellerUser(SellUsernmae[i]);
 			store.add(p);
-			
+
 		}
 		return store;
 	}
-	
-	
-	public static final int BUYERS=1;
-	public static final int Seller=2;
-	
+
+	public static final int BUYERS = 1;
+	public static final int SELLER = 2;
+
 }

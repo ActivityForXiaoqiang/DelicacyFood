@@ -10,7 +10,18 @@ public class Shop {
 	private int icon;
 	private Map<String, String> goods;
 	private String location;
+	private String SellerUser;
 	
+	
+	
+
+	public String getSellerUser() {
+		return SellerUser;
+	}
+
+	public void setSellerUser(String sellerUser) {
+		SellerUser = sellerUser;
+	}
 
 	public Map<String, String> getGoods() {
 		return goods;

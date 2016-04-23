@@ -21,6 +21,7 @@ public class MySelfActvity extends BasedActivity {
 		setMine();
 		setTitle("个人中心");
 		initView();
+		SysApplication.getInstance().addActivity(this); 
 	}
 
 	void initView() {
@@ -30,10 +31,7 @@ public class MySelfActvity extends BasedActivity {
 			@Override
 			public void onClick(View v) {
 				CurrentUseer.Clear();
-				Intent intent=new Intent(MySelfActvity.this, LoginActivity.class);
-				intent.setFlags( Intent.FLAG_ACTIVITY_CLEAR_TOP);
-				startActivity(intent);
-				finish();
+				SysApplication.getInstance().exit();
 
 			}
 		});

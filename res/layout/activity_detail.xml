@@ -86,7 +86,7 @@
         android:layout_height="wrap_content"
         android:text="预约" />
 
-    <Button
+    <TextView
         android:id="@+id/btn_dingcan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

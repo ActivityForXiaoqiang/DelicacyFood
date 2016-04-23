@@ -22,6 +22,7 @@ public class SellerActivity extends BasedActivity {
 		super.onCreate(arg0);
 		setContentView(R.layout.actvity_login);
 		initView();
+		SysApplication.getInstance().addActivity(this); 
 	}
 
 	void initView() {

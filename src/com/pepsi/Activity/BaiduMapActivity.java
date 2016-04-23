@@ -68,7 +68,7 @@ public class BaiduMapActivity extends BasedActivity {
 		locService.start();
 
 		
-		
+		SysApplication.getInstance().addActivity(this); 
 	}
 
 	/***

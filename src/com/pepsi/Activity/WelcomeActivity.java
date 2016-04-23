@@ -1,7 +1,5 @@
 package com.pepsi.Activity;
 
-import com.pepsi.Tools.TOOL;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.PagerAdapter;
@@ -12,6 +10,8 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+
+import com.pepsi.Tools.TOOL;
 
 public class WelcomeActivity extends BasedActivity {
 	private int[] welcome_items = { R.drawable.welcome_item1, R.drawable.welcome_item2, R.drawable.welcome_item3,
@@ -30,6 +30,7 @@ public class WelcomeActivity extends BasedActivity {
 		// TOOL.NoStateBar(this);
 		setContentView(R.layout.activity_welcome);
 		initView();
+		SysApplication.getInstance().addActivity(this);
 	}
 
 	void initView() {

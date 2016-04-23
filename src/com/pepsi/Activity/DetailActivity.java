@@ -45,6 +45,7 @@ public class DetailActivity extends BasedActivity {
 		setTitle("详情");
 		dataInit();
 		initView();
+		SysApplication.getInstance().addActivity(this); 
 	}
 
 	void initView() {
@@ -105,8 +106,6 @@ public class DetailActivity extends BasedActivity {
 
 				TOOL.save(DetailActivity.this, TOOL.ORDER,
 						JSON.toJSONString(orderList));
-				
-				
 				Toast.makeText(DetailActivity.this, "预约成功", 0).show();
 			}
 		});

@@ -11,6 +11,7 @@ public class MySelfActvity extends BasedActivity {
 		setContentView(R.layout.activity_myself);
 		setback();
 		setMine();
+		setTitle("个人中心");
 
 	}
 

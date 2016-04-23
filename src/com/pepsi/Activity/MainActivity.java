@@ -3,9 +3,11 @@ package com.pepsi.Activity;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.alibaba.fastjson.JSON;
 import com.pepsi.Adapter.MyAdapter;
 import com.pepsi.Myview.NoScrollListView;
 import com.pepsi.Tools.Attribute;
+import com.pepsi.Tools.Shop;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -28,7 +30,7 @@ public class MainActivity extends BasedActivity {
 	private ViewPager viewpager;
 	private NoScrollListView tuijian, hot;
 	int index = 0;
-	ArrayList<Integer> data;
+	List<Shop> data;
 	private LinearLayout mine;
 
 	@Override
@@ -56,18 +58,18 @@ public class MainActivity extends BasedActivity {
 		viewpager.requestFocus();
 		handler.sendEmptyMessageDelayed(1, 5 * 1000);
 		tuijian = (NoScrollListView) findViewById(R.id.main_list_tuijian);
-		data = new ArrayList<Integer>();
-		for (int i = 0; i < Attribute.content_tuijian.length; i++) {
-			data.add(Attribute.content_tuijian[i]);
-		}
-		tuijian.setAdapter(new MyAdapter(this, data));
+		data = Attribute.InitStore();
+		// for (int i = 0; i < Attribute.content_tuijian.length; i++) {
+		// data.add(Attribute.content_tuijian[i]);
+		// }
+		tuijian.setAdapter(new MyAdapter(this, (ArrayList<Shop>) data));
 		tuijian.setOnItemClickListener(tuijianListener);
 		hot = (NoScrollListView) findViewById(R.id.main_list_hot);
-		data = new ArrayList<Integer>();
-		for (int i = 0; i < Attribute.content_hot.length; i++) {
-			data.add(Attribute.content_hot[i]);
-		}
-		hot.setAdapter(new MyAdapter(this, data));
+		// data = new ArrayList<Integer>();
+		// for (int i = 0; i < Attribute.content_hot.length; i++) {
+		// data.add(Attribute.content_hot[i]);
+		// }
+		hot.setAdapter(new MyAdapter(this, (ArrayList<Shop>) data));
 		hot.setOnItemClickListener(hotListener);
 	}
 
@@ -76,7 +78,7 @@ public class MainActivity extends BasedActivity {
 		@Override
 		public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 			Intent it = new Intent(MainActivity.this, DetailActivity.class);
-			it.putExtra("index", position);
+			it.putExtra("shop", JSON.toJSONString(data.get(position)));
 			startActivity(it);
 		}
 	};
@@ -85,7 +87,7 @@ public class MainActivity extends BasedActivity {
 		@Override
 		public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 			Intent it = new Intent(MainActivity.this, DetailActivity.class);
-			it.putExtra("index", position);
+			it.putExtra("shop", JSON.toJSONString(data.get(position)));
 			startActivity(it);
 		}
 	};

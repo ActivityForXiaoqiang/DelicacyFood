@@ -1,25 +1,46 @@
 package com.pepsi.Tools;
 
+import java.util.Map;
+
 public class Shop {
-	private float lat;
-	private float lon;
+	private String lat;
+	private String lon;
 	private String name;
 	private String content;
 	private int icon;
+	private Map<String, String> goods;
+	private String location;
+	
 
-	public float getLat() {
+	public Map<String, String> getGoods() {
+		return goods;
+	}
+
+	public void setGoods(Map<String, String> goods) {
+		this.goods = goods;
+	}
+
+	public String getLocation() {
+		return location;
+	}
+
+	public void setLocation(String location) {
+		this.location = location;
+	}
+
+	public String getLat() {
 		return lat;
 	}
 
-	public void setLat(float lat) {
+	public void setLat(String lat) {
 		this.lat = lat;
 	}
 
-	public float getLon() {
+	public String getLon() {
 		return lon;
 	}
 
-	public void setLon(float lon) {
+	public void setLon(String lon) {
 		this.lon = lon;
 	}
 

@@ -15,8 +15,9 @@
        android:layout_marginTop="10dp" >
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:id="@+id/shop_icon"
+            android:layout_width="80dp"
+            android:layout_height="50dp"
             android:background="@drawable/ic_launcher" />
 
         <LinearLayout
@@ -26,6 +27,7 @@
             android:orientation="vertical" >
 
             <TextView
+                android:id="@+id/shop_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="小强保健店"
@@ -33,6 +35,7 @@
                 android:textSize="18sp" />
 
             <TextView
+                android:id="@+id/shop_labe"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
@@ -65,14 +68,16 @@
             android:src="@drawable/btn_go" />
 
         <TextView
+            android:id="@+id/shop_location"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_alignParentTop="true"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="22dp"
             android:layout_toRightOf="@+id/imageView1"
             android:gravity="center"
             android:text="顾村公园 联洋路1231"
             android:textSize="15sp" />
+
     </RelativeLayout>
 
 </LinearLayout>

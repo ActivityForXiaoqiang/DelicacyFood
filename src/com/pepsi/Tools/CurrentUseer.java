@@ -16,7 +16,13 @@ public class CurrentUseer {
 
 	}
 
+	public static void Clear() {
+		user = null;
+
+	}
+
 	private CurrentUseer(UserInfo userinfo) {
+
 		username = userinfo.getUsername();
 		password = userinfo.getPassword();
 		id = userinfo.getId();

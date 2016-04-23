@@ -43,7 +43,7 @@ public class LoginActivity extends BasedActivity {
 					return;
 				}
 				
-				Log.i("xiaoqiang", CurrentUseer.getCurrentUseer(null).getUsername());
+//				Log.i("xiaoqiang", CurrentUseer.getCurrentUseer(null).getUsername());
 				
 				startActivity(new Intent(LoginActivity.this, MainActivity.class));
 				finish();
@@ -68,4 +68,5 @@ public class LoginActivity extends BasedActivity {
 			}
 		});
 	}
+	
 }

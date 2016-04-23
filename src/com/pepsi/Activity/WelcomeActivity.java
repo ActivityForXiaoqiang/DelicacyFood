@@ -1,5 +1,7 @@
 package com.pepsi.Activity;
 
+import com.pepsi.Tools.TOOL;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.PagerAdapter;
@@ -48,7 +50,7 @@ public class WelcomeActivity extends BasedActivity {
 			yuandian[i] = (ImageView) findViewById(ids[i]);
 		}
 		setPage(index);
-
+		TOOL.UserInit(this);
 	}
 
 	OnPageChangeListener viewpagerListener = new OnPageChangeListener() {

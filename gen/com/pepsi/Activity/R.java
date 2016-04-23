@@ -57,36 +57,39 @@ public final class R {
     }
     public static final class id {
         public static final int Myself_head=0x7f070009;
-        public static final int Seller_relativeLayout=0x7f070017;
-        public static final int back=0x7f07001c;
-        public static final int bmapView=0x7f07001a;
+        public static final int Seller_relativeLayout=0x7f07001a;
+        public static final int back=0x7f07001f;
+        public static final int bmapView=0x7f07001d;
         public static final int imageView1=0x7f070004;
-        public static final int item_img=0x7f07001b;
-        public static final int login_btn=0x7f070016;
+        public static final int item_img=0x7f07001e;
+        public static final int linearLayout1=0x7f070016;
+        public static final int login_btn=0x7f070019;
+        public static final int login_password=0x7f070018;
+        public static final int login_username=0x7f070017;
         public static final int main_list_hot=0x7f070008;
         public static final int main_list_tuijian=0x7f070007;
         public static final int main_viewpager=0x7f070006;
-        public static final int mine=0x7f07001e;
+        public static final int mine=0x7f070021;
         public static final int myself_dingdan=0x7f07000b;
         public static final int myself_gunyu=0x7f07000e;
         public static final int myself_info=0x7f07000a;
         public static final int myself_jifen=0x7f07000d;
         public static final int myself_kajuan=0x7f07000c;
         public static final int seller_bg_layout=0x7f070015;
-        public static final int shangjia=0x7f070018;
+        public static final int shangjia=0x7f07001b;
         public static final int shop_icon=0x7f070000;
         public static final int shop_labe=0x7f070002;
         public static final int shop_location=0x7f070005;
         public static final int shop_name=0x7f070001;
         public static final int to_baidu_dingwei=0x7f070003;
-        public static final int top_title=0x7f07001d;
+        public static final int top_title=0x7f070020;
         public static final int welcome_begin=0x7f070010;
         public static final int welcome_item1=0x7f070011;
         public static final int welcome_item2=0x7f070012;
         public static final int welcome_item3=0x7f070013;
         public static final int welcome_item4=0x7f070014;
         public static final int welcome_viewpager=0x7f07000f;
-        public static final int zhuce=0x7f070019;
+        public static final int zhuce=0x7f07001c;
     }
     public static final class layout {
         public static final int activity_detail=0x7f030000;

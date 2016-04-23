@@ -19,27 +19,31 @@ public final class R {
         public static final int red_text=0x7f040002;
     }
     public static final class drawable {
-        public static final int ic_launcher=0x7f020000;
-        public static final int listview_item_supervision_signin_success_sex_boy=0x7f020001;
-        public static final int listview_item_supervision_signin_success_sex_girl=0x7f020002;
-        public static final int loaation_icon_red=0x7f020003;
-        public static final int login_bg=0x7f020004;
-        public static final int login_btn=0x7f020005;
-        public static final int login_psd_icon=0x7f020006;
-        public static final int login_qq=0x7f020007;
-        public static final int login_sina=0x7f020008;
-        public static final int login_username_icon=0x7f020009;
-        public static final int login_username_phone=0x7f02000a;
-        public static final int login_weixin=0x7f02000b;
-        public static final int queweidenglul=0x7f02000c;
-        public static final int welcome_item1=0x7f02000d;
-        public static final int welcome_item2=0x7f02000e;
-        public static final int welcome_item3=0x7f02000f;
-        public static final int welcome_item_end=0x7f020010;
-        public static final int welcome_item_select=0x7f020011;
-        public static final int welcome_item_unselect=0x7f020012;
+        public static final int huaji=0x7f020000;
+        public static final int ic_launcher=0x7f020001;
+        public static final int icon_openmap_focuse_mark=0x7f020002;
+        public static final int icon_openmap_mark=0x7f020003;
+        public static final int listview_item_supervision_signin_success_sex_boy=0x7f020004;
+        public static final int listview_item_supervision_signin_success_sex_girl=0x7f020005;
+        public static final int loaation_icon_red=0x7f020006;
+        public static final int login_bg=0x7f020007;
+        public static final int login_btn=0x7f020008;
+        public static final int login_psd_icon=0x7f020009;
+        public static final int login_qq=0x7f02000a;
+        public static final int login_sina=0x7f02000b;
+        public static final int login_username_icon=0x7f02000c;
+        public static final int login_username_phone=0x7f02000d;
+        public static final int login_weixin=0x7f02000e;
+        public static final int queweidenglul=0x7f02000f;
+        public static final int welcome_item1=0x7f020010;
+        public static final int welcome_item2=0x7f020011;
+        public static final int welcome_item3=0x7f020012;
+        public static final int welcome_item_end=0x7f020013;
+        public static final int welcome_item_select=0x7f020014;
+        public static final int welcome_item_unselect=0x7f020015;
     }
     public static final class id {
+        public static final int bmapView=0x7f070007;
         public static final int login_btn=0x7f070006;
         public static final int welcome_begin=0x7f070001;
         public static final int welcome_item1=0x7f070002;
@@ -52,6 +56,7 @@ public final class R {
         public static final int activity_main=0x7f030000;
         public static final int activity_welcome=0x7f030001;
         public static final int actvity_login=0x7f030002;
+        public static final int baidumap=0x7f030003;
     }
     public static final class string {
         public static final int app_name=0x7f050000;

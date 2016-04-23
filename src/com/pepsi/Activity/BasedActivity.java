@@ -21,7 +21,7 @@ public class BasedActivity extends FragmentActivity {
 		// TODO Auto-generated method stub
 		super.onCreate(arg0);
 		TOOL.NoTitleBar(this);
-
+		SysApplication.getInstance().addActivity(this); 
 	}
 
 

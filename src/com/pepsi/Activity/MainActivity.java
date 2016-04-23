@@ -38,6 +38,7 @@ public class MainActivity extends BasedActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		initView();
+		SysApplication.getInstance().addActivity(this); 
 	}
 
 	void initView() {

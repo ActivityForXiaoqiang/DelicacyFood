@@ -7,6 +7,9 @@
     <uses-sdk
         android:minSdkVersion="19"
         android:targetSdkVersion="19" />
+
+    <uses-permission android:name="android.permission.RESTART_PACKAGES" >
+    </uses-permission>
     <!-- 这个权限用于进行网络定位 -->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" >
     </uses-permission>
@@ -33,16 +36,15 @@
     <!-- SD卡读取权限，用户写入离线定位数据 -->
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" >
     </uses-permission>
-    <uses-permission android:name="android.permission.RESTART_PACKAGES"></uses-permission>
-   
+    <uses-permission android:name="android.permission.RESTART_PACKAGES" >
+    </uses-permission>
 
-   <application
+    <application
         android:name="com.pepsi.Activity.LocationApplication"
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@android:style/Theme.Black"
-         >
+        android:theme="@android:style/Theme.Black" >
         <service
             android:name="com.baidu.location.f"
             android:enabled="true"
@@ -51,12 +53,12 @@
                 <action android:name="com.baidu.location.service_v2.2" >
                 </action>
             </intent-filter>
-        </service>   
-        
-         <meta-data
+        </service>
+
+        <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
             android:value="6Z0Kr4GNdGvOzxyqReGiYfn3rCkgnC2x" />
-        
+
         <activity
             android:name="com.pepsi.Activity.WelcomeActivity"
             android:label="@string/app_name" >
@@ -68,14 +70,15 @@
         </activity>
         <activity android:name="com.pepsi.Activity.BaiduMapActivity" >
         </activity>
-         <activity android:name="com.pepsi.Activity.MainActivity" >
+        <activity android:name="com.pepsi.Activity.MainActivity" >
         </activity>
         <activity android:name="com.pepsi.Activity.LoginActivity" >
         </activity>
         <activity android:name="com.pepsi.Activity.DetailActivity" >
         </activity>
         <activity android:name="com.pepsi.Activity.MySelfActvity" />
-         <activity android:name="com.pepsi.Activity.SellerActivity" />
+        <activity android:name="com.pepsi.Activity.SellerActivity" />
+        <activity android:name="com.pepsi.Activity.DingdanActivity" />
     </application>
 
 </manifest>

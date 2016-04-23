@@ -1,5 +1,6 @@
 package com.pepsi.Activity;
 
+import com.pepsi.Tools.ScreenManager;
 import com.pepsi.Tools.TOOL;
 
 import android.content.Intent;
@@ -22,6 +23,7 @@ public class BasedActivity extends FragmentActivity {
 		TOOL.NoTitleBar(this);
 
 	}
+
 
 	public void setback() {
 		back = (LinearLayout) findViewById(R.id.back);

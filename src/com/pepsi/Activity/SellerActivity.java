@@ -2,6 +2,7 @@ package com.pepsi.Activity;
 
 import com.pepsi.Tools.TOOL;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -37,14 +38,15 @@ public class SellerActivity extends BasedActivity {
 
 			@Override
 			public void onClick(View v) {
-				if (!TOOL.Check(SellerActivity.this, login_username, login_username)) {
+				if (!TOOL.Check(SellerActivity.this, login_username, login_password)) {
 					return;
 				}
-				if (!TOOL.CheckSellerUser(SellerActivity.this, login_username, login_username)) {
+				if (!TOOL.CheckSellerUser(SellerActivity.this, login_username, login_password)) {
 					return;
 				}
 
-				Toast.makeText(SellerActivity.this, "dd", 0).show();
+				startActivity(new Intent(SellerActivity.this, DingdanActivity.class));
+				finish();
 			}
 		});
 

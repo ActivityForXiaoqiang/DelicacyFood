@@ -1,8 +1,11 @@
 package com.pepsi.Activity;
 
 import com.pepsi.Tools.CurrentUseer;
+import com.pepsi.Tools.ScreenManager;
 import com.pepsi.Tools.TOOL;
 
+import android.app.ActivityManager;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -42,9 +45,10 @@ public class LoginActivity extends BasedActivity {
 				if (!TOOL.CheckUser(LoginActivity.this, login_username, login_password)) {
 					return;
 				}
-				
-//				Log.i("xiaoqiang", CurrentUseer.getCurrentUseer(null).getUsername());
-				
+
+				// Log.i("xiaoqiang",
+				// CurrentUseer.getCurrentUseer(null).getUsername());
+
 				startActivity(new Intent(LoginActivity.this, MainActivity.class));
 				finish();
 			}
@@ -68,5 +72,9 @@ public class LoginActivity extends BasedActivity {
 			}
 		});
 	}
-	
+
+	@Override
+	public void onBackPressed() {
+		finish();
+	}
 }

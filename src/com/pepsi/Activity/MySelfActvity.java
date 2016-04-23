@@ -40,8 +40,6 @@ public class MySelfActvity extends BasedActivity {
 	}
 	
 	
-	@Override
-	public void onBackPressed() {
-		finish();
-	}
+	
+	
 }

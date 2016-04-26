@@ -76,9 +76,11 @@
         </activity>
         <activity android:name="com.pepsi.Activity.DetailActivity" >
         </activity>
-        <activity android:name="com.pepsi.Activity.MySelfActvity" />
-        <activity android:name="com.pepsi.Activity.SellerActivity" />
+        <activity android:name="com.pepsi.Activity.MySelfActvity"   />
+        <activity android:name="com.pepsi.Activity.SellerActivity"  />
         <activity android:name="com.pepsi.Activity.DingdanActivity" />
+        <activity android:name="com.pepsi.Activity.PinglunActivity" />
+          <activity android:name="com.pepsi.Activity.RegistActivity" />
     </application>
 
 </manifest>

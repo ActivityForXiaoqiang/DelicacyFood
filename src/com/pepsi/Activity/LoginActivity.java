@@ -59,7 +59,8 @@ public class LoginActivity extends BasedActivity {
 
 			@Override
 			public void onClick(View v) {
-				Toast.makeText(LoginActivity.this, "暂未开放", 0).show();
+				// Toast.makeText(LoginActivity.this, "暂未开放", 0).show();
+				startActivity(new Intent(LoginActivity.this, RegistActivity.class));
 			}
 		});
 		shangjia = (TextView) findViewById(R.id.shangjia);

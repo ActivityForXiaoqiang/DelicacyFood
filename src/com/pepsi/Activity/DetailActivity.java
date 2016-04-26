@@ -11,6 +11,7 @@ import android.content.res.AssetManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -32,7 +33,7 @@ public class DetailActivity extends BasedActivity {
 
 	private RelativeLayout to_baidu_dingwei;
 
-	private RelativeLayout btn_yuyue;
+	private RelativeLayout btn_yuyue, btn_comments;
 	private ImageView tuijian;
 
 	@Override
@@ -45,13 +46,13 @@ public class DetailActivity extends BasedActivity {
 		setTitle("详情");
 		dataInit();
 		initView();
-		SysApplication.getInstance().addActivity(this); 
+		SysApplication.getInstance().addActivity(this);
 	}
 
 	void initView() {
 		icon = (ImageView) findViewById(R.id.shop_icon);
 		icon.setBackgroundResource(shop.getIcon());
-		tuijian=(ImageView) findViewById(R.id.tuijain);
+		tuijian = (ImageView) findViewById(R.id.tuijain);
 		btn_yuyue = (RelativeLayout) findViewById(R.id.btn_yuyue);
 
 		shop_name = (TextView) findViewById(R.id.shop_name);
@@ -61,21 +62,19 @@ public class DetailActivity extends BasedActivity {
 		shop_name.setText(shop.getName());
 		shop_labe.setText(shop.getContent());
 		shop_location.setText(shop.getLocation());
-		
-		Random ran=new Random();
-		int j=ran.nextInt(7)+1;
-		tuijian.setImageBitmap(getImageFromAssetsFile(j+".jpg"));
+
+		Random ran = new Random();
+		int j = ran.nextInt(7) + 1;
+		tuijian.setImageBitmap(getImageFromAssetsFile(j + ".jpg"));
 		to_baidu_dingwei.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
-				Intent it = new Intent(DetailActivity.this,
-						BaiduMapActivity.class);
+				Intent it = new Intent(DetailActivity.this, BaiduMapActivity.class);
 				it.putExtra("shop", JSON.toJSONString(shop));
 				startActivity(it);
 			}
 		});
-
 
 		final ArrayList<Order> orderList = new ArrayList<Order>();
 
@@ -84,14 +83,14 @@ public class DetailActivity extends BasedActivity {
 		order.setTime("" + new Date().toString());
 		order.setStory(shop.getName());
 		order.setSellerName(shop.getSellerUser());
-		String userName=CurrentUseer.getCurrentUseer(null).getUsername();
-	    order.setUser(userName);
+		String userName = CurrentUseer.getCurrentUseer(null).getUsername();
+		order.setUser(userName);
 		orderList.add(order);
-		
+
 		if (null != TOOL.read(DetailActivity.this, TOOL.ORDER)) {
-			ArrayList<Order> saveList = (ArrayList<Order>) JSON.parseArray(
-					TOOL.read(DetailActivity.this, TOOL.ORDER), Order.class);
-			for (int i = 0; i < saveList.size(); i++) { 
+			ArrayList<Order> saveList = (ArrayList<Order>) JSON.parseArray(TOOL.read(DetailActivity.this, TOOL.ORDER),
+					Order.class);
+			for (int i = 0; i < saveList.size(); i++) {
 				Order or = saveList.get(i);
 				orderList.add(or);
 			}
@@ -102,11 +101,22 @@ public class DetailActivity extends BasedActivity {
 
 			@Override
 			public void onClick(View v) {
-				
 
-				TOOL.save(DetailActivity.this, TOOL.ORDER,
-						JSON.toJSONString(orderList));
+				TOOL.save(DetailActivity.this, TOOL.ORDER, JSON.toJSONString(orderList));
 				Toast.makeText(DetailActivity.this, "预约成功", 0).show();
+			}
+		});
+
+		btn_comments = (RelativeLayout) findViewById(R.id.btn_pinglun);
+		btn_comments.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				Intent it=new Intent(DetailActivity.this, PinglunActivity.class);
+				it.putExtra("seller", shop.getSellerUser());
+				Log.i("xiaoqiang", "------------");
+				Log.i("xiaoqiang", shop.getSellerUser()+"-----");
+				startActivity(it);
 			}
 		});
 

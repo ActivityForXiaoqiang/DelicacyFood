@@ -27,12 +27,14 @@ public class DingdanActivity extends BasedActivity {
 
 	void initView() {
 		listview = (NoScrollListView) findViewById(R.id.list_dingdan_);
-		saveList = (ArrayList<Order>) JSON.parseArray(TOOL.read(DingdanActivity.this, TOOL.ORDER), Order.class);
 		data = new ArrayList<Order>();
-		for (int i = 0; i < saveList.size(); i++) {
-			Order r = saveList.get(i);
-			if (CurrentUseer.getCurrentUseer(null).getUsername().equals(r.getSellerName())) {
-				data.add(r);
+		saveList = (ArrayList<Order>) JSON.parseArray(TOOL.read(DingdanActivity.this, TOOL.ORDER), Order.class);
+		if (saveList != null) {
+			for (int i = 0; i < saveList.size(); i++) {
+				Order r = saveList.get(i);
+				if (CurrentUseer.getCurrentUseer(null).getUsername().equals(r.getSellerName())) {
+					data.add(r);
+				}
 			}
 		}
 

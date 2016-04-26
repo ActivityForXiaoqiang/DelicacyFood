@@ -107,9 +107,8 @@
             android:textSize="15sp" />
 
     </RelativeLayout>
-    
     <RelativeLayout
-      android:id="@+id/btn_dingcan"
+       android:id="@+id/btn_pinglun"
         android:layout_width="match_parent"
         android:layout_height="30dp"
         android:layout_marginLeft="15dp"
@@ -131,12 +130,33 @@
             android:layout_alignParentTop="true"
             android:layout_marginLeft="30dp"
             android:gravity="center"
+            android:text="评论"
+            android:textSize="15sp" />
+
+    </RelativeLayout>
+    
+    <RelativeLayout
+      android:id="@+id/btn_dingcan"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="10dp" >
+
+       
+
+        
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="30dp"
+            android:gravity="center"
             android:text="营养膳食推荐"
             android:textSize="15sp" />
 
     </RelativeLayout>
-
-   
 
     <ImageView
         android:id="@+id/tuijain"

@@ -43,6 +43,7 @@ public class SellerActivity extends BasedActivity {
 					return;
 				}
 				if (!TOOL.CheckSellerUser(SellerActivity.this, login_username, login_password)) {
+					
 					return;
 				}
 

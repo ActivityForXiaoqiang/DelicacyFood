@@ -19,7 +19,7 @@ public class TOOL {
 	public static final String KEY = "MEISHI";
 	public static final String UserKey = "userInfo";
 	public static final String ORDER = "order";
-
+	public static final String COMMENTS = "comments";
 	public static List<UserInfo> userList = new ArrayList<UserInfo>();
 
 	/**
@@ -86,7 +86,10 @@ public class TOOL {
 	}
 
 	public static void UserInit(Context con) {
-
+		if (!TextUtils.isEmpty(read(con, UserKey))) {
+			Log.i("xiaoqiang", read(con, UserKey));
+			return;
+		}
 		UserInfo user = new UserInfo();
 		user.setId(Attribute.BUYERS);
 		user.setUsername("12345678901");
@@ -133,31 +136,24 @@ public class TOOL {
 	 */
 
 	public static boolean CheckUser(Context con, EditText ed, EditText pwd) {
+
+		boolean isok = false;
 		List<UserInfo> list = JSON.parseArray(read(con, UserKey), UserInfo.class);
-		Log.i("xiaoqiang", list.size() + "----");
 		for (int i = 0; i < list.size(); i++) {
 			UserInfo u = list.get(i);
 			if (u.getId() == Attribute.BUYERS) {
-				
-				if (u.getUsername().equals(ed.getText().toString())) {
-					
-					if (u.getPassword().equals(pwd.getText().toString())) {
-						CurrentUseer user = CurrentUseer.getCurrentUseer(u);
-						return true;
-					}else{
-						Toast.makeText(con, "密码错误", 0).show();
-					}
-				}else{
-					Toast.makeText(con, "用户不存在", 0).show();
+				if (u.getUsername().equals(ed.getText().toString())
+						&& u.getPassword().equals(pwd.getText().toString())) {
+					CurrentUseer user = CurrentUseer.getCurrentUseer(u);
+					isok = true;
+					return isok;
 				}
-				
-				// Log.i("xiaoqiang",
-				// TextUtils.isEmpty(u.getUsername())+"====");
-				
+
 			}
 		}
+		Toast.makeText(con, "用户不存在或密码错误", 0).show();
 
-		return false;
+		return isok;
 
 	}
 
@@ -173,24 +169,19 @@ public class TOOL {
 		List<UserInfo> list = JSON.parseArray(read(con, UserKey), UserInfo.class);
 		for (int i = 0; i < list.size(); i++) {
 			UserInfo u = list.get(i);
-			Log.i("xiaoqiang", u.getUsername() + "---" + ed.getText().toString());
 			if (u.getId() == Attribute.SELLER) {
-				if (u.getUsername().equals(ed.getText().toString())) {
+				if (u.getUsername().equals(ed.getText().toString())
+						&& u.getPassword().equals(pwd.getText().toString())) {
 
-					if (u.getPassword().equals(pwd.getText().toString())) {
+					CurrentUseer user = CurrentUseer.getCurrentUseer(u);
+					Log.i("xiaoqiang", "true");
+					return true;
 
-						CurrentUseer user = CurrentUseer.getCurrentUseer(u);
-						return true;
-					} else {
-						Toast.makeText(con, "密码错误", 0).show();
-					}
-				} else {
-					Toast.makeText(con, "用户不存在", 0).show();
 				}
 
 			}
 		}
-
+		Toast.makeText(con, "用户不存在或密码错误", 0).show();
 		return false;
 
 	}

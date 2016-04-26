@@ -41,6 +41,11 @@ public class MySelfActvity extends BasedActivity {
 		
 		infoLayout=(RelativeLayout) findViewById(R.id.myself_info);
 		
+		String taste=TOOL.read(MySelfActvity.this, TOOL.TASTE);
+		if (null !=taste && !"".equals(taste)) {
+			person_taste.setText("个人口味: " +taste);
+		}
+		
 		infoLayout.setOnClickListener(new OnClickListener() {
 			
 			@Override
@@ -57,6 +62,7 @@ public class MySelfActvity extends BasedActivity {
 							@Override
 							public void onClick(DialogInterface dialog, int which) {
 								TOOL.save(MySelfActvity.this, TOOL.TASTE, editText.getText().toString());
+								
 								Toast.makeText(MySelfActvity.this, "添加成功", 0).show();
 							}
 						})

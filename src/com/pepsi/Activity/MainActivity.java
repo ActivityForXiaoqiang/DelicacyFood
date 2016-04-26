@@ -40,7 +40,7 @@ public class MainActivity extends BasedActivity {
 	List<Shop> data;
 	private LinearLayout mine;
 
-	private Button btn_serarch;
+	private Button btn_serarch; 
 	
 	private MyAdapter adapter;
 
@@ -139,8 +139,35 @@ public class MainActivity extends BasedActivity {
 		// data.add(Attribute.content_hot[i]);
 		// }
 		
-		hot.setAdapter(new MyAdapter(this, (ArrayList<Shop>) data));
+		hot.setAdapter(adapter);
 		hot.setOnItemClickListener(hotListener);
+		
+		
+		List<Shop> dataSerarch = new ArrayList<Shop>();
+
+		String serarch =TOOL.read(MainActivity.this, TOOL.TASTE);
+		for (int i = 0; i < data.size(); i++) {
+			Shop shop = data.get(i);
+			// 模糊匹配
+			if (serarch.contains(shop.getTab())
+					|| serarch.contains(shop
+							.getName())) {
+				dataSerarch.add(shop);
+			}
+
+		}
+		if (dataSerarch.size() == 0 ) {
+			Toast.makeText(MainActivity.this,
+					"没有该口味", 0).show();
+		} else {
+			
+			
+			adapter.clear();
+			adapter.addAll(dataSerarch);
+			Toast.makeText(MainActivity.this,
+					"有"+dataSerarch.size()+"条符合口味", 0).show();
+		}
+		
 	}
 
 	OnItemClickListener tuijianListener = new OnItemClickListener() {

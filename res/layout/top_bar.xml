@@ -47,4 +47,16 @@
             android:src="@drawable/mine" />
     </LinearLayout>
 
+    <TextView
+        android:id="@+id/dingdan_add"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"
+        android:clickable="true"
+        android:gravity="center"
+        android:text="ADD"
+        android:textColor="#000" 
+        android:visibility="gone"/>
+
 </RelativeLayout>

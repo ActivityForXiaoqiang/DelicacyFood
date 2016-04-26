@@ -9,12 +9,18 @@ import com.pepsi.Tools.CurrentUseer;
 import com.pepsi.Tools.Order;
 import com.pepsi.Tools.TOOL;
 
+import android.app.AlertDialog;
 import android.os.Bundle;
+import android.view.View;
+import android.view.Window;
+import android.view.View.OnClickListener;
+import android.widget.TextView;
 
 public class DingdanActivity extends BasedActivity {
 	private NoScrollListView listview;
 	private ArrayList<Order> saveList;
 	private ArrayList<Order> data;
+	private TextView ADD;
 
 	@Override
 	protected void onCreate(Bundle arg0) {
@@ -39,7 +45,18 @@ public class DingdanActivity extends BasedActivity {
 		}
 
 		listview.setAdapter(new MySellerAdapter(this, data));
+		ADD = (TextView) findViewById(R.id.dingdan_add);
+		ADD.setVisibility(View.VISIBLE);
+		ADD.setOnClickListener(new OnClickListener() {
 
+			@Override
+			public void onClick(View v) {
+				AlertDialog dialog = new AlertDialog.Builder(DingdanActivity.this).create();
+				dialog.show();
+				Window window = dialog.getWindow();
+				window.setContentView(R.layout.dialog_view);
+			}
+		});
 	}
 
 }

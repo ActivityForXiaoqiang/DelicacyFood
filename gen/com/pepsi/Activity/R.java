@@ -68,6 +68,7 @@ public final class R {
         public static final int comment_username=0x7f07002a;
         public static final int comments_listview=0x7f070015;
         public static final int commet_content=0x7f07002b;
+        public static final int dingdan_add=0x7f070034;
         public static final int imageView1=0x7f070004;
         public static final int item_img=0x7f07002c;
         public static final int linearLayout1=0x7f07001f;
@@ -122,9 +123,10 @@ public final class R {
         public static final int actvity_regist=0x7f030007;
         public static final int baidumap=0x7f030008;
         public static final int comment_list_item=0x7f030009;
-        public static final int list_item=0x7f03000a;
-        public static final int list_item_seller=0x7f03000b;
-        public static final int top_bar=0x7f03000c;
+        public static final int dialog_view=0x7f03000a;
+        public static final int list_item=0x7f03000b;
+        public static final int list_item_seller=0x7f03000c;
+        public static final int top_bar=0x7f03000d;
     }
     public static final class string {
         public static final int app_name=0x7f050000;

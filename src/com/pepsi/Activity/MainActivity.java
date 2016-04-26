@@ -8,7 +8,10 @@ import com.pepsi.Adapter.MyAdapter;
 import com.pepsi.Myview.NoScrollListView;
 import com.pepsi.Tools.Attribute;
 import com.pepsi.Tools.Shop;
+import com.pepsi.Tools.TOOL;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -16,15 +19,19 @@ import android.os.Message;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.Toast;
 
 public class MainActivity extends BasedActivity {
 	private ViewPager viewpager;
@@ -33,16 +40,76 @@ public class MainActivity extends BasedActivity {
 	List<Shop> data;
 	private LinearLayout mine;
 
+	private Button btn_serarch;
+	
+	private MyAdapter adapter;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		initView();
-		SysApplication.getInstance().addActivity(this); 
+		SysApplication.getInstance().addActivity(this);
 	}
 
 	void initView() {
+
+		btn_serarch = (Button) findViewById(R.id.btn_search);
+
 		mine = (LinearLayout) findViewById(R.id.mine);
+		
+		btn_serarch.setVisibility(View.VISIBLE);
+
+		btn_serarch.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				final View contens_view = LayoutInflater
+						.from(MainActivity.this).inflate(
+								R.layout.contents_view, null);
+				final EditText editText = (EditText) contens_view
+						.findViewById(R.id.edit_text);
+				AlertDialog builder = new AlertDialog.Builder(MainActivity.this)
+						.setTitle("搜索")
+						.setNegativeButton("确定",
+								new DialogInterface.OnClickListener() {
+
+									@Override
+									public void onClick(DialogInterface dialog,
+											int which) {
+										List<Shop> dataSerarch = new ArrayList<Shop>();
+
+										for (int i = 0; i < data.size(); i++) {
+											Shop shop = data.get(i);
+											String serarch = editText.getText()
+													.toString();
+											// 模糊匹配
+											if (serarch.contains(shop.getTab())
+													|| serarch.contains(shop
+															.getName())) {
+												dataSerarch.add(shop);
+											}
+
+										}
+										if (dataSerarch.size() == 0) {
+											Toast.makeText(MainActivity.this,
+													"没有该商品", 0).show();
+										} else {
+											
+											adapter.clear();
+											adapter.addAll(dataSerarch);
+											Toast.makeText(MainActivity.this,
+													"搜索到"+dataSerarch.size()+"条数据", 0).show();
+										}
+									}
+								})
+
+						.setView(contens_view).create();
+				builder.show();
+
+			}
+		});
+
 		mine.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -63,13 +130,15 @@ public class MainActivity extends BasedActivity {
 		// for (int i = 0; i < Attribute.content_tuijian.length; i++) {
 		// data.add(Attribute.content_tuijian[i]);
 		// }
-		tuijian.setAdapter(new MyAdapter(this, (ArrayList<Shop>) data));
+		adapter=new MyAdapter(this, (ArrayList<Shop>) data);
+		tuijian.setAdapter(adapter);
 		tuijian.setOnItemClickListener(tuijianListener);
 		hot = (NoScrollListView) findViewById(R.id.main_list_hot);
 		// data = new ArrayList<Integer>();
 		// for (int i = 0; i < Attribute.content_hot.length; i++) {
 		// data.add(Attribute.content_hot[i]);
 		// }
+		
 		hot.setAdapter(new MyAdapter(this, (ArrayList<Shop>) data));
 		hot.setOnItemClickListener(hotListener);
 	}
@@ -77,7 +146,8 @@ public class MainActivity extends BasedActivity {
 	OnItemClickListener tuijianListener = new OnItemClickListener() {
 
 		@Override
-		public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+		public void onItemClick(AdapterView<?> parent, View view, int position,
+				long id) {
 			Intent it = new Intent(MainActivity.this, DetailActivity.class);
 			it.putExtra("shop", JSON.toJSONString(data.get(position)));
 			startActivity(it);
@@ -86,7 +156,8 @@ public class MainActivity extends BasedActivity {
 	OnItemClickListener hotListener = new OnItemClickListener() {
 
 		@Override
-		public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+		public void onItemClick(AdapterView<?> parent, View view, int position,
+				long id) {
 			Intent it = new Intent(MainActivity.this, DetailActivity.class);
 			it.putExtra("shop", JSON.toJSONString(data.get(position)));
 			startActivity(it);
@@ -143,7 +214,8 @@ public class MainActivity extends BasedActivity {
 
 		@Override
 		public Object instantiateItem(ViewGroup container, int position) {
-			LinearLayout.LayoutParams mParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
+			LinearLayout.LayoutParams mParams = new LinearLayout.LayoutParams(
+					LinearLayout.LayoutParams.MATCH_PARENT,
 					LinearLayout.LayoutParams.MATCH_PARENT);
 			ImageView iv = new ImageView(MainActivity.this);
 			iv.setLayoutParams(mParams);

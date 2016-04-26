@@ -17,17 +17,16 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_centerInParent="true"
-            android:src="@drawable/head" 
-            />
+            android:src="@drawable/head" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/Myself_head"
-            android:text="Loner" 
-            android:textColor="#fff"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="3dp"/>
+            android:layout_marginTop="3dp"
+            android:text="Loner"
+            android:textColor="#fff" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -44,11 +43,12 @@
             android:background="@color/red_text" />
 
         <TextView
+            android:id="@+id/person_taste"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginLeft="20dp"
             android:gravity="center"
-            android:text="个人信息"
+            android:text="个人口味"
             android:textColor="#000"
             android:textSize="17sp" />
 
@@ -187,9 +187,9 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="40dp"
         android:background="@drawable/btn_red_bg"
+        android:clickable="true"
         android:gravity="center"
         android:text="退出登录"
-        android:textColor="#fff" 
-        android:clickable="true"/>
+        android:textColor="#fff" />
 
 </LinearLayout>

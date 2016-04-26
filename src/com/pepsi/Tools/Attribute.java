@@ -14,7 +14,7 @@ public class Attribute {
 
 	public static final int[] icons = { R.drawable.banner_dangao, R.drawable.banner_quqi, R.drawable.banner_makalong,
 			R.drawable.content_kafei, R.drawable.content_shuiguo, R.drawable.content_caiguan,
-			R.drawable.content_pangxie };
+			R.drawable.content_pangxie }; 
 	public static final String[][] location = { { "30.1354550000", "120.1593410000", "西湖区狮闻线" },
 			{ "30.1954060000", "120.2237310000", "滨江区江陵路609号309室" },
 			{ "30.2453370000", "120.1800380000", "上城区河坊街61-2" }, { "30.2113870000", "120.2168320000", "滨江区江南大道" },
@@ -27,6 +27,11 @@ public class Attribute {
 	public static List<Shop> store;
 	public static String[] SellUsernmae = { "12345678902", "12345678903", "12345678904", "12345678905", "12345678906",
 			"12345678907", "12345678908" };
+	
+	public static String[] tabs = { "甜食", "甜食", "甜食", "咖啡", "水果",
+		"土菜", "海鲜" };
+
+	
 
 	public static List<Shop> InitStore() {
 		store = new ArrayList<Shop>();
@@ -39,6 +44,7 @@ public class Attribute {
 			p.setName(shop_name[i]);
 			p.setContent(shop_contetn[i]);
 			p.setSellerUser(SellUsernmae[i]);
+			p.setTab(tabs[i]);
 			store.add(p);
 
 		}

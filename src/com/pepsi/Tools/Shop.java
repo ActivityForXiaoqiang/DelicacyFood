@@ -11,9 +11,15 @@ public class Shop {
 	private Map<String, String> goods;
 	private String location;
 	private String SellerUser;
+	private String tab;
 	
-	
-	
+	public String getTab() {
+		return tab;
+	}
+
+	public void setTab(String tab) {
+		this.tab = tab;
+	}
 
 	public String getSellerUser() {
 		return SellerUser;

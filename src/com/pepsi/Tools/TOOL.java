@@ -54,7 +54,6 @@ public class TOOL {
 	 * @param str
 	 */
 	public static void save(Context con, String dataKey, String str) {
-		Log.i("xiaoqiang", str);
 		SharedPreferences sp = con.getSharedPreferences(KEY, 0);
 		SharedPreferences.Editor editor = sp.edit();
 		editor.putString(dataKey, str);

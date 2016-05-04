@@ -35,6 +35,7 @@ public class DetailActivity extends BasedActivity {
 
 	private RelativeLayout btn_yuyue, btn_comments;
 	private ImageView tuijian;
+	String[] youhui = { "买一送一", "8折优惠", "免费品尝" };
 
 	@Override
 	protected void onCreate(Bundle arg0) {
@@ -59,7 +60,9 @@ public class DetailActivity extends BasedActivity {
 		to_baidu_dingwei = (RelativeLayout) findViewById(R.id.to_baidu_dingwei);
 		shop_labe = (TextView) findViewById(R.id.shop_labe);
 		shop_location = (TextView) findViewById(R.id.shop_location);
-		shop_name.setText(shop.getName());
+		Random r = new Random();
+
+		shop_name.setText(shop.getName() +"----优惠："+youhui[r.nextInt(2)]);
 		shop_labe.setText(shop.getContent());
 		shop_location.setText(shop.getLocation());
 
@@ -95,13 +98,14 @@ public class DetailActivity extends BasedActivity {
 				orderList.add(or);
 			}
 
+		} else {
+			orderList.add(order);
 		}
 
 		btn_yuyue.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
-
 				TOOL.save(DetailActivity.this, TOOL.ORDER, JSON.toJSONString(orderList));
 				Toast.makeText(DetailActivity.this, "预约成功", 0).show();
 			}
@@ -112,10 +116,10 @@ public class DetailActivity extends BasedActivity {
 
 			@Override
 			public void onClick(View v) {
-				Intent it=new Intent(DetailActivity.this, PinglunActivity.class);
+				Intent it = new Intent(DetailActivity.this, PinglunActivity.class);
 				it.putExtra("seller", shop.getSellerUser());
 				Log.i("xiaoqiang", "------------");
-				Log.i("xiaoqiang", shop.getSellerUser()+"-----");
+				Log.i("xiaoqiang", shop.getSellerUser() + "-----");
 				startActivity(it);
 			}
 		});

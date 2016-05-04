@@ -35,6 +35,7 @@ public class DingdanActivity extends BasedActivity {
 		listview = (NoScrollListView) findViewById(R.id.list_dingdan_);
 		data = new ArrayList<Order>();
 		saveList = (ArrayList<Order>) JSON.parseArray(TOOL.read(DingdanActivity.this, TOOL.ORDER), Order.class);
+		
 		if (saveList != null) {
 			for (int i = 0; i < saveList.size(); i++) {
 				Order r = saveList.get(i);
